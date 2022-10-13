@@ -23,6 +23,11 @@
         .container{
             padding: 15px 32px;
         }
+        .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         .botones{
             margin: 15px 0px;
             display: flex;
@@ -36,13 +41,15 @@
 </head>
 <body>
 <div class="container">
-    <h1  class="align-content-center">Welcome, ${user.userName} </h1>
-    <div class="row">
+    <h1  class="heading" >${user.getGreeting()}, ${user.userName} </h1>
+    <div class="header">
         <h2>Books</h2>
         <div class="botones">
             <a class="btn-sm btn-light btn-outline-dark" href="/newbook">Add Book</a>
             <a class="btn-sm btn-light btn-outline-dark" href="/logout">Logout</a>
         </div>
+    </div>
+    <div class="row">
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -62,7 +69,14 @@
                             <c:out value="${book.title}"></c:out></a>
                     </td>
                     <td><c:out value="${book.author}"></c:out></td>
-                    <td><c:out value="${book.user.getUserName()}"></c:out></td>
+                    <c:choose>
+                        <c:when test="${user.userName == book.user.getUserName()}">
+                            <td><p style = "font-weight: bold; font-style: italic; color: deeppink;"><c:out value="${book.user.getUserName()}"></c:out></p></td>
+                        </c:when>
+                        <c:otherwise>
+                            <td><c:out value="${book.user.getUserName()}"></c:out></p></td>
+                        </c:otherwise>
+                    </c:choose>
                 </tr>
             </c:forEach>
             </tbody>

@@ -23,11 +23,26 @@
         .container{
             padding: 15px 32px;
         }
+        .form-group{
+            margin: 10px 0px;
+        }
+        .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn{
+            margin: 7px 0px;
+        }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>Edit Book</h1>
+    <h1 class="heading" >${user.getGreeting()}, ${user.userName} </h1>
+    <div class="header">
+        <h2>Edit Book</h2>
+        <a href="/books/${book.id}">Back</a>
+    </div>
     <div class="row">
         <div class="col">
             <div class="form-group">
@@ -39,17 +54,17 @@
                         <form:input  class="form-control" path="title"/>
                         <form:errors path="title"/>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <form:label path="author">author</form:label>
                         <form:input  class="form-control" path="author"/>
                         <form:errors path="author"/>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <form:label path="myThoughts">myThoughts</form:label>
-                        <form:input type="textarea"  class="form-control" path="myThoughts"/>
+                        <form:input type="textarea" class="form-control" path="myThoughts"/>
                         <form:errors path="myThoughts"/>
                     </div>
-                    <input type="submit" value="edit book">
+                    <input class = "btn btn-sm btn-light btn-outline-dark" type="submit" value="Save ">
                 </form:form>
             </div>
         </div>

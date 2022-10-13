@@ -19,6 +19,7 @@ import javax.validation.Valid;
 @Controller
 public class HomeController {
 
+
     // Add once service is implemented:
     @Autowired
     private UserService userServ;
@@ -83,5 +84,4 @@ public class HomeController {
 
         return "redirect:/";
     }
-
 }

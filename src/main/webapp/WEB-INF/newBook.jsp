@@ -38,8 +38,9 @@
 </head>
 <body>
     <div class="container">
+        <h1  class="heading" >${user.getGreeting()}, ${user.userName} </h1>
         <div class="header">
-            <h1  class="align-content-center">New Book</h1>
+            <h2  class="align-content-center">New Book</h2>
             <a href="/books">Bookshelf</a>
         </div>
         <div class="row">

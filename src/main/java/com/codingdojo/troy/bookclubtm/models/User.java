@@ -101,4 +101,24 @@ public class User {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    public String getGreeting() {
+        int rand = (int)(Math.random() * (6)) + 1;
+        switch (rand)
+        {
+            case 1:
+                return "Привет";
+            case 2:
+                return "Salut";
+            case 3:
+                return "안녕";
+            case 4:
+                return "Whattup";
+            case 5:
+                return "Hola";
+            case 6:
+                return "こんにちわ";
+        }
+        return null;
+    }
 }

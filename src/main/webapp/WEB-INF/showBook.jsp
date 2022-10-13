@@ -40,11 +40,19 @@
 </head>
 <body>
     <div class="container">
+        <h1  class="heading" >${user.getGreeting()}, ${user.userName} </h1>
         <div class = "header">
-            <h1>${book.title}</h1>
+            <h2>${book.title}</h2>
             <a class="float-end" href="/books">Bookshelf</a>
         </div>
-        <p>${book.user.getUserName()} read ${book.title} by ${book.author}</p>
+        <c:choose>
+            <c:when test="${user.userName == book.user.getUserName()}">
+                <p>You read ${book.title} by ${book.author}.</p>
+            </c:when>
+            <c:otherwise>
+                <p>${book.user.getUserName()} read ${book.title} by ${book.author}</p>
+            </c:otherwise>
+        </c:choose>
         <p>${book.myThoughts}</p>
         <div class="botones">
             <c:if test="${user.getId() == book.user.getId()}">
